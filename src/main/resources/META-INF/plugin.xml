@@ -1,0 +1,50 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+  <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+  <id>com.hy.daily tasks</id>
+
+  <!-- Public plugin name should be written in Title Case.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+  <name>Daily Tasks</name>
+
+  <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+
+
+  <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+       Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+  <description><![CDATA[
+    <h2>每日任务管理</h2>
+    <p>简洁而高效的工具，帮助您管理和跟踪工作中的每日任务和任务完成情况。可以通过这个插件轻松安排和监督您的所有任务。</p>
+
+    <h3>主要功能</h3>
+    <ul>
+      <li>快速添加任务：输入任务名称和时间，轻松创建新任务。</li>
+      <li>任务编辑：在表格中直接修改任务名称和时间。</li>
+      <li>删除已完成任务：一键清除所有已完成的任务，保持任务列表整洁。</li>
+      <li>任务状态：根据任务时间自动更新状态，包括未开始、进行中、已完成和超时，点击状态列可进行完成标记。</li>
+      <li>超时提醒：定期检查任务状态，并提醒您超时任务。</li>
+    </ul>
+  ]]></description>
+
+  <!-- Product and plugin compatibility requirements.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <!-- Extension points defined by the plugin.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+  <extensions defaultExtensionNs="com.intellij">
+    <toolWindow id="Daily Tasks"
+                anchor="right"
+                factoryClass="com.hy.dailytask.DailyTasksToolWindowFactory"
+                icon="AllIcons.Actions.Checked"/>
+    <notificationGroup displayType="STICKY_BALLOON" id="taskGroup"/>
+  </extensions>
+
+  <!-- Declare the version of the IntelliJ Platform that your plugin is compatible with -->
+  <idea-version since-build="222.3345.118"/>
+
+  <!-- Personal developer signature -->
+  <vendor email="jia1987228617@gmail.com" url="https://github.com/VJiaHY">HY Jia</vendor>
+
+</idea-plugin>
