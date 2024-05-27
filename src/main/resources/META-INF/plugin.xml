@@ -14,18 +14,18 @@
        Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
   <description><![CDATA[
-    <h2>每日任务管理</h2>
-    <p>简洁而高效的工具，帮助您管理和跟踪工作中的每日任务和任务完成情况。可以通过这个插件轻松安排和监督您的所有任务。</p>
-
-    <h3>主要功能</h3>
+    <h2>Daily Tasks</h2>
+    <p>A tool for managing and tracking daily tasks efficiently. Easily schedule and supervise all your tasks.</p>
+    <h3>Main Features</h3>
     <ul>
-      <li>快速添加任务：输入任务名称和时间，轻松创建新任务。</li>
-      <li>任务编辑：在表格中直接修改任务名称和时间。</li>
-      <li>删除已完成任务：一键清除所有已完成的任务，保持任务列表整洁。</li>
-      <li>任务状态：根据任务时间自动更新状态，包括未开始、进行中、已完成和超时，点击状态列可进行完成标记。</li>
-      <li>超时提醒：定期检查任务状态，并提醒您超时任务。</li>
+      <li>Quick task addition: Input task name and time to create new tasks easily.</li>
+      <li>Task editing: Modify task name and time directly in the table.</li>
+      <li>Delete completed tasks: Clear all completed tasks with one click to keep the task list tidy.</li>
+      <li>Task status: Automatically update status based on task time, including not started, in progress, completed, and overdue. Click on the status column to mark completion.</li>
+      <li>Overdue reminders: Regularly check task status and remind you of overdue tasks.</li>
     </ul>
   ]]></description>
+
 
   <!-- Product and plugin compatibility requirements.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
