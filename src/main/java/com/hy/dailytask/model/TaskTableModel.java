@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class TaskTableModel extends AbstractTableModel {
     private final List<Task> tasks;
-    private final String[] columnNames = {"任务名称", "剩余时间", "完成状态","任务时段"};
+    private final String[] columnNames = {"Task Name", "Time Remaining", "Status","Task Period"};
 
 
     public TaskTableModel(List<Task> tasks) {
@@ -98,7 +98,7 @@ public class TaskTableModel extends AbstractTableModel {
 
     public int getStatusColumnIndex() {
         for (int i = 0; i < getColumnCount(); i++) {
-            if (columnNames[i].equals("完成状态")) {
+            if (columnNames[i].equals("Status")) {
                 return i;
             }
         }

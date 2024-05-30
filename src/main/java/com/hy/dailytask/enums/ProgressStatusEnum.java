@@ -2,10 +2,10 @@ package com.hy.dailytask.enums;
 
 public enum ProgressStatusEnum {
 
-    NOTSTART(0, "未进行"),
-    START(1, "进行中"),
-    FINISH(2, "已完成"),
-    TIMEOUT(3, "已超时");
+    NOTSTART(0, "Not Start"),
+    START(1, "Ongoing"),
+    FINISH(2, "Complete"),
+    TIMEOUT(3, "Time Out");
 
     private final int key;
     private final String value;

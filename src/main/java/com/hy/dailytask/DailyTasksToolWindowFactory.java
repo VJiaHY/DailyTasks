@@ -53,11 +53,11 @@ public class DailyTasksToolWindowFactory implements ToolWindowFactory, DumbAware
         panel.add(new JScrollPane(taskTable), BorderLayout.CENTER);
 
         //创建所需输入框和按钮
-        JTextField taskField = createHintTextField("任务名称");
-        JTextField startTimeField = createHintTextField("开始时间 (HH:mm)");
-        JTextField endTimeField = createHintTextField("结束时间 (HH:mm)");
-        JButton addButton = new JButton(" 添加新任务");
-        JButton removeButton = new JButton("删除已完成");
+        JTextField taskField = createHintTextField("Task Name");
+        JTextField startTimeField = createHintTextField("Start Time (HH:mm)");
+        JTextField endTimeField = createHintTextField("End Time (HH:mm)");
+        JButton addButton = new JButton(" Add New Task");
+        JButton removeButton = new JButton("Delete Complete");
 
         //新增任务按钮触发事件
         addButton.addActionListener(e -> {
@@ -72,21 +72,21 @@ public class DailyTasksToolWindowFactory implements ToolWindowFactory, DumbAware
                     Task task = new Task(System.currentTimeMillis(), taskContent, startTime, endTime, startTime + "~" + endTime);
                     tasks.add(task);
                     taskTableModel.fireTableDataChanged();
-                    resetHintTextField(taskField, "任务名称");
-                    resetHintTextField(startTimeField, "开始时间 (HH:mm)");
-                    resetHintTextField(endTimeField, "结束时间 (HH:mm)");
+                    resetHintTextField(taskField, "Task Name");
+                    resetHintTextField(startTimeField, "Start Time (HH:mm)");
+                    resetHintTextField(endTimeField, "End Time (HH:mm)");
                 } else {
-                    JOptionPane.showMessageDialog(panel, "请输入有效的任务详细信息");
+                    JOptionPane.showMessageDialog(panel, "Please enter valid task details");
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(panel, "时间格式无效。使用 HH:mm");
+                JOptionPane.showMessageDialog(panel, "The time format is invalid。use HH:mm");
             }
             localDate = LocalDate.now();
         });
         //删除已完成任务按钮事件
         removeButton.addActionListener(e -> {
             //对话框
-            int result = JOptionPane.showConfirmDialog(panel, "是否删除已完成任务?", "确认", JOptionPane.YES_NO_OPTION);
+            int result = JOptionPane.showConfirmDialog(panel, "Whether to delete completed tasks?", "Confirm", JOptionPane.YES_NO_OPTION);
             //如果选择是返回的则是 0
             if (result == JOptionPane.YES_OPTION) {
                 tasks.removeIf(Task::isCompleted);
@@ -115,7 +115,7 @@ public class DailyTasksToolWindowFactory implements ToolWindowFactory, DumbAware
                         //根据索引获得对象
                         Task task = tasks.get(row);
                         if (!task.getStatus().equals(ProgressStatusEnum.FINISH.getValue())) {
-                            int result = JOptionPane.showConfirmDialog(panel, "是否标记任务为已完成?", "确认", JOptionPane.YES_NO_OPTION);
+                            int result = JOptionPane.showConfirmDialog(panel, "Whether to mark the task as completed?", "Confirm", JOptionPane.YES_NO_OPTION);
                             if (result == JOptionPane.YES_OPTION) {
                                 //状态更改
                                 task.setCompleted(true);
@@ -258,7 +258,7 @@ public class DailyTasksToolWindowFactory implements ToolWindowFactory, DumbAware
             //发送提醒
             Notification notification = NotificationGroupManager.getInstance()
                     .getNotificationGroup("taskGroup")
-                    .createNotification("每日任务提醒", "您有新的超时任务: " + message, NotificationType.INFORMATION);
+                    .createNotification("Daily Reminders", "You have a new timeout task: " + message, NotificationType.INFORMATION);
             notification.notify(project);
         }
         //将上面通知过的任务该为已通知
@@ -286,7 +286,7 @@ public class DailyTasksToolWindowFactory implements ToolWindowFactory, DumbAware
                     .collect(Collectors.joining(", "));
             Notification notification = NotificationGroupManager.getInstance()
                     .getNotificationGroup("taskGroup")
-                    .createNotification("每日任务提醒", "超时任务定期提醒:"+ message, NotificationType.INFORMATION);
+                    .createNotification("Daily Reminders", "Periodic reminders for timeout tasks:"+ message, NotificationType.INFORMATION);
             notification.notify(project);
         }
 
